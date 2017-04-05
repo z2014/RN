@@ -6,9 +6,11 @@ import { Text,View,StyleSheet,ListView } from 'react-native';
 export default class HomePage extends Component{
   render () {
   	return (
-  		<View>
+  		<View style={{ flex:1 }}>
   		  <SearchInput/>
+  		  <View style={{flex:1}}>
   		  <ContentView/>
+  		  </View>
   		</View>
   	)
   }

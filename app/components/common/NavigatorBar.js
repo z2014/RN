@@ -5,19 +5,19 @@ import NavItem from './NavItem';
 const navInfo = [{
   title: '首页',
   route: {
-    scene: 'HomePage',
+    name: 'HomePage',
     index: 0
   }
 }, {
   title: '发帖',
   route: {
-    scene: 'Written',
+    name: 'Written',
     index: 1
   }
 }, {
   title: '我的',
   route: {
-    scene: 'UserInfo',
+    name: 'UserInfo',
     index: 2
   }
 }];
@@ -33,14 +33,16 @@ export default class NavigatorBar extends Component{
 			  />
   	});
   	return (
-  		<View style={styles.navWrapper}>{NavigatorBarComponent}</View>
+  		<View style={styles.navWrapper}>{ NavigatorBarComponent }</View>
   	)
   }
 }
 
 const styles = StyleSheet.create({
 	navWrapper: {
-		'flexDirection': 'row',
-		'justifyContent': 'space-around'
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		position: 'absolute',
+		bottom: 0
 	}
 })

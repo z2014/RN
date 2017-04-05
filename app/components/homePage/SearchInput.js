@@ -5,7 +5,7 @@ import InputTextView from '../common/InputTextView.js';
 export default class SearchInput extends Component{
   render () {
   	return (
-  	  <View >
+  	  <View>
   	    <InputTextView url="url"/>
   	  </View>
   	)
