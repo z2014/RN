@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { Text,View,StyleSheet,ListView,Image,RefreshControl,TouchableNativeFeedback } from 'react-native';
+import { Text,View,StyleSheet,ListView,Image,RefreshControl,TouchableOpacity } from 'react-native';
 
 export default class ContentView extends Component{
   constructor(props) {
@@ -49,11 +49,14 @@ export default class ContentView extends Component{
 
 function ShowItem(props) {
 	return (
-    <TouchableNativeFeedback background={TouchableNativeFeedback.SelectableBackground()}>
+    <TouchableOpacity activeOpacity={0.5}                   >
   		<View style={styles.wrapper} ref={this.topic}>
         <View style={styles.header}>
-          <Image source={require('../../../public/images/1.jpg')} style={styles.avator}/>
-          <Text style={styles.author}>{props.data.author}</Text>
+          <Text style={styles.topic}>{props.data.topic}</Text>
+          <View style={styles.headerRight}>
+            <Text style={styles.author}>{props.data.author}</Text>
+            <Image source={require('../../../public/images/1.jpg')} style={styles.avator}/>            
+          </View>
         </View>
         <View style={styles.body}>
           <View style={styles.leftView}>
@@ -70,28 +73,25 @@ function ShowItem(props) {
             <Text>{props.data.like}</Text>
           </View>
           <View style={styles.item}>
-            <Text>{`来自话题：${props.data.topic}`}</Text>
-          </View>
-          <View style={styles.item}>
             <Image source={require('../../../public/images/join.png')} style={styles.icon}/>
             <Text>{props.data.people}</Text>
           </View>
         </View>
   		</View>
-    </TouchableNativeFeedback>
+    </TouchableOpacity>
 	)
 }
 
 const styles = 	StyleSheet.create({
   wrapper: {
     flex:1,
-    marginTop: 5,
-    marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
-    padding: 5,
-    height: 150,
-    backgroundColor: '#ccc',
+    paddingTop:5,
+    paddingBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+    height: 200,
     justifyContent: 'space-around'
   },
   leftView: {
@@ -105,9 +105,20 @@ const styles = 	StyleSheet.create({
   header: {
     flex:1,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    height: '25%'
+    height: '25%',
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  topic: {
+    borderColor: '#eee',
+    borderWidth: 1,
+    fontSize: 12
   },
   body: {
     height: '55%',
@@ -115,12 +126,11 @@ const styles = 	StyleSheet.create({
   },
   txt: {
     overflow: 'hidden',
-    maxHeight: '65%'
+    height: 36
   },
   headline: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
-    //maxHeight: '50%'
   },
   footer: {
     height: '10%',
@@ -144,6 +154,7 @@ const styles = 	StyleSheet.create({
   },
   bg: {
     width: '100%',
-    height: '80%'
+    height: '80%',
+    borderRadius: 10
   }
 })

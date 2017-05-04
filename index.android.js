@@ -7,7 +7,11 @@ import {
   Text,
   Image
 } from 'react-native';
-import HomePage from './app/components/homePage/index';
+
+
+import Home from './app/components/homePage/index';
+import EditPage from './app/components/common/EditPage';
+
 import TabNavigator from 'react-native-tab-navigator';
 import UserInfo from './app/components/userInfo/index';
 import Written from './app/components/written/index';
@@ -32,7 +36,7 @@ export default class AwesomeProject extends Component {
             renderIcon={() => <Image source={require("./public/images/home.png")} style={styles.iconStyle}/>}
             renderSelectedIcon={() => <Image source={require("./public/images/home-active.png")} style={styles.iconStyle}/>}
             onPress={() => this.setState({ selectedTab: 'home' })}>
-           <HomePage/>
+            <Home/>
           </TabNavigator.Item>
           <TabNavigator.Item
             title="发起"
@@ -81,9 +85,9 @@ const styles = StyleSheet.create({
     width:30,
     height:30
   },
-  tabNav: {
-    backgroundColor: 'red'
-  }
+  // tabNav: {
+  //   backgroundColor: 'red'
+  // }
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

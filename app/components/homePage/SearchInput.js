@@ -6,7 +6,7 @@ export default class SearchInput extends Component{
   render () {
   	return (
   	  <View>
-  	    <InputTextView url="url"/>
+  	    <InputTextView url="url" navigation={this.props.navigation}/>
   	  </View>
   	)
   }
